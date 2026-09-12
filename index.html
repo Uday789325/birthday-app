@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Tracker App</title>
+    <link rel="stylesheet" href="birthday-style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🎂 Birthday Tracker</h1>
+            <p class="tagline">Never miss a birthday again!</p>
+        </header>
+
+        <!-- Add Birthday Section -->
+        <div class="add-birthday-section">
+            <h2>Add Birthday</h2>
+            <form id="birthday-form" class="birthday-form">
+                <div class="form-group">
+                    <input 
+                        type="text" 
+                        id="name-input" 
+                        placeholder="Name" 
+                        class="form-input"
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <input 
+                        type="date" 
+                        id="date-input" 
+                        class="form-input"
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <input 
+                        type="text" 
+                        id="relation-input" 
+                        placeholder="Relation (e.g., Friend, Family)" 
+                        class="form-input"
+                    >
+                </div>
+                <button type="submit" class="add-btn">+ Add Birthday</button>
+            </form>
+        </div>
+
+        <!-- Filter and Sort Section -->
+        <div class="controls-section">
+            <div class="filter-controls">
+                <button class="filter-btn active" data-filter="upcoming">📅 Upcoming</button>
+                <button class="filter-btn" data-filter="today">🎉 Today</button>
+                <button class="filter-btn" data-filter="all">📋 All</button>
+            </div>
+            <div class="sort-controls">
+                <select id="sort-select" class="sort-select">
+                    <option value="date">Sort by Date</option>
+                    <option value="name">Sort by Name</option>
+                    <option value="age">Sort by Age</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Statistics -->
+        <div class="stats-section">
+            <div class="stat-card">
+                <span class="stat-icon">👥</span>
+                <div>
+                    <p class="stat-label">Total Birthdays</p>
+                    <p id="total-count" class="stat-value">0</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon">🎉</span>
+                <div>
+                    <p class="stat-label">Upcoming (30 days)</p>
+                    <p id="upcoming-count" class="stat-value">0</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon">🌟</span>
+                <div>
+                    <p class="stat-label">This Month</p>
+                    <p id="month-count" class="stat-value">0</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Error Message -->
+        <div id="error" class="error hidden"></div>
+
+        <!-- Birthdays List -->
+        <div class="birthdays-section">
+            <h2>Birthdays</h2>
+            <div id="birthdays-list" class="birthdays-list">
+                <div class="empty-state">
+                    <p>📭 No birthdays added yet. Add one to get started!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Export/Import -->
+        <div class="data-section">
+            <button id="export-btn" class="data-btn">📥 Export Data</button>
+            <label class="data-btn import-label">
+                📤 Import Data
+                <input type="file" id="import-input" accept=".json" style="display: none;">
+            </label>
+            <button id="clear-btn" class="data-btn danger">🗑️ Clear All</button>
+        </div>
+    </div>
+
+    <script src="birthday-script.js"></script>
+</body>
+</html>
